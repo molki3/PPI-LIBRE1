@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <title>Calculadora Básica</title>
+</head>
+<body class="bg-gray-300 flex flex-col justify-center items-center h-screen">
+    <div class="bg-gray-100 p-8 rounded shadow-md">
+        <h1 class="text-2xl font-semibold mb-4">Calculadora</h1>
+        <input id="display" class="w-full mb-4 p-2 border rounded" type="text" readonly>
+        <div class="grid grid-cols-4 gap-2">
+            <button class="col-span-1 bg-gray-300 p-2 rounded hover:bg-gray-400" onclick="addToDisplay('1')">1</button>
+            <button class="col-span-1 bg-gray-300 p-2 rounded hover:bg-gray-400" onclick="addToDisplay('2')">2</button>
+            <button class="col-span-1 bg-gray-300 p-2 rounded hover:bg-gray-400" onclick="addToDisplay('3')">3</button>
+            <button class="col-span-1 bg-gray-300 p-2 rounded hover:bg-gray-400" onclick="addToDisplay('+')">+</button>
+            <button class="col-span-1 bg-gray-300 p-2 rounded hover:bg-gray-400" onclick="addToDisplay('4')">4</button>
+            <button class="col-span-1 bg-gray-300 p-2 rounded hover:bg-gray-400" onclick="addToDisplay('5')">5</button>
+            <button class="col-span-1 bg-gray-300 p-2 rounded hover:bg-gray-400" onclick="addToDisplay('6')">6</button>
+            <button class="col-span-1 bg-gray-300 p-2 rounded hover:bg-gray-400" onclick="addToDisplay('-')">-</button>
+            <button class="col-span-1 bg-gray-300 p-2 rounded hover:bg-gray-400" onclick="addToDisplay('7')">7</button>
+            <button class="col-span-1 bg-gray-300 p-2 rounded hover:bg-gray-400" onclick="addToDisplay('8')">8</button>
+            <button class="col-span-1 bg-gray-300 p-2 rounded hover:bg-gray-400" onclick="addToDisplay('9')">9</button>
+            <button class="col-span-1 bg-gray-300 p-2 rounded hover:bg-gray-400" onclick="addToDisplay('*')">*</button>
+            <button class="col-span-1 bg-gray-300 p-2 rounded hover:bg-gray-400" onclick="addToDisplay('0')">0</button>
+            <button class="col-span-1 bg-gray-300 p-2 rounded hover:bg-gray-400" onclick="clearDisplay()">C</button>
+            <button class="col-span-1 bg-gray-300 p-2 rounded hover:bg-gray-400" onclick="calculate()">=</button>
+            <button class="col-span-1 bg-gray-300 p-2 rounded hover:bg-gray-400" onclick="addToDisplay('/')">/</button>
+        </div>
+    </div>
+    <div class="mt-10 font-semibold">Manuel Navarro Valadez/220790806</div>
+
+
+    <script>
+        const display = document.getElementById("display");
+
+
+        function addToDisplay(value) {
+            display.value += value;
+        }
+
+
+        function clearDisplay() {
+            display.value = "";
+        }
+
+
+        function calculate() {
+            try {
+                display.value = eval(display.value);
+            } catch (error) {
+                display.value = "Error";
+            }
+        }
+    </script>
+</body>
+</html>
